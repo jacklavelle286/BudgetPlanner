@@ -1,0 +1,62 @@
+html {
+ text-align: center;
+ font-family: Montserrat;
+}
+
+a {
+ text-decoration: none;
+ color: inherit;
+}
+
+nav {
+ background-color: #1d8941;
+ color: white;
+ padding: 10px;
+ border-radius: 25px;
+}
+
+
+.flex-container {
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
+}
+
+.flex-item:hover {
+ color: #dfdfdf;
+}
+
+
+
+ul {
+ list-style-type: none;
+}
+
+
+table {
+ width: 75%;
+ table-layout: fixed; /* Fixed table layout to control column width */
+ border-collapse: collapse;
+ min-width: 600px; /* Minimum width for the table */
+ margin: auto;
+}
+
+th, td {
+ padding: 10px;
+ text-align: left;
+ border: 1px solid #686868;
+ white-space: nowrap; /* Prevent the text from wrapping inside table cells */
+}
+
+@media screen and (max-width: 800px) {
+ .flex-container {
+  flex-direction: column;
+ }
+ table {
+  display: block;
+  overflow-x: auto;
+  
+ }
+}	
+
+
