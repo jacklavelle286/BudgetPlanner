@@ -23,9 +23,9 @@ a {
   justify-content: space-around;
   align-items: center;
   background-color: #192851;
-  max-height: 500px; /* Default max-height for larger screens */
-  overflow: visible; /* Ensure content is visible */
-  transition: max-height 0.6s ease; /* Smooth transition for showing/hiding */
+  max-height: 1000px; /* Use a larger max-height for smoother transitions */
+  overflow: hidden;  /* Hide the overflow content */
+  transition: max-height 0.6s ease; /* Slow down opening/closing of the menu */
 }
 
 /* Styling for individual nav items */
@@ -72,12 +72,11 @@ a {
 /* Media query for smaller screens */
 @media (max-width: 800px) {
   .nav-flexbox {
-    display: flex;
     flex-direction: column;
     background-color: #192851;
     max-height: 0;  /* Collapsed by default */
     overflow: hidden;  /* Hide content when collapsed */
-    transition: max-height 0.6s ease;  /* Smooth transition on opening and closing */
+    transition: max-height 0.6s ease;  /* Smooth transition for opening and closing */
   }
 
   .burger {
@@ -86,6 +85,6 @@ a {
 
   /* Show the menu when the 'show' class is added */
   .nav-flexbox.show {
-    max-height: 500px;  /* Set the maximum height of the menu */
+    max-height: 1000px;  /* Large max-height for smooth transitions */
   }
 }
