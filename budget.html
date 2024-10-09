@@ -1,70 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Budget</title>
-  </head>
-  <body>
-    <div>
-      <nav>
-        <ul class="flex-container">
-          <li class="flex-item home"><a href="budget.html">Home</a></li>
-          <li class="flex-item graphs"><a href="graphs.html">Graphs</a></li>
-          <li class="flex-item income"><a href="inputs.html">Income</a></li>
-          <li class="flex-item analysis"><a href="analysis.html">Analysis</a></li>
-          <li class="flex-item logout"><a href="logout.html">Logout</a></li>
-        </ul>
-      </nav>
-      
-    </div>
-    <div>
-      <h1>Budget Overview</h1>
-      <br>
-    </div>
-    <div>
-      <table>
-        <tr>
-          <th>Expense Name</th>
-          <th>Cost</th>
-          <th>Date Of Payment</th>
-          <th>Bank Account</th>
-          <th>Category</th>
-        </tr>
-        <tr>
-        <tr>
-          <td>Electricity</td>
-          <td>100</td>
-          <td>2021-10-01</td>
-          <td>Bank of America</td>
-          <td>Utilities</td>
-        </tr>
-        <tr>
-          <td>Water</td>
-          <td>50</td>
-          <td>2021-10-01</td>
-          <td>Bank of America</td>
-          <td>Utilities</td>
-        </tr>
-        <tr>
-          <td>Gas</td>
-          <td>75</td>
-          <td>2021-10-01</td>
-          <td>Bank of America</td>
-          <td>Utilities</td>
-        </tr>
-        <tr>
-          <td>Internet</td>
-          <td>60</td>
-          <td>2021-10-01</td>
-          <td>Bank of America</td>
-          <td>Utilities</td>
-        </tr>
-      </table>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <title>Budget</title>
+</head>
+<body>
+  <div class="grid-container">
+    <nav class="nav-container">
+      <div class="nav-flexbox">
+        <a href="budget.html" class="nav-item-home">Home</a>
+        <a href="graphs.html" class="nav-item-graphs">Graphs</a>
+        <a href="inputs.html" class="nav-item-income">Income</a>
+        <a href="analysis.html" class="nav-item-analysis">Analysis</a>
+        <a href="logout.html" class="nav-item-logout">Logout</a>
+      </div>
+    </nav>
+    <script src="script.js"></script>
+</body>
 </html>
+
