@@ -1,7 +1,8 @@
 /* Global styles */
+
 body {
   margin: 0;
-  font-family: Quicksand, sans-serif;
+  font-family: Afacad, sans-serif;
   background-color: #F5F5F5;
 }
 
@@ -16,34 +17,61 @@ a {
   height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
+  
 }
 
 .nav-flexbox {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 30px;
   align-items: center;
-  background-color: #192851;
+  background-color: #192852;
+  height: 60%;
+  font-size: 1.5em;
   max-height: 1000px; /* Use a larger max-height for smoother transitions */
   overflow: hidden;  /* Hide the overflow content */
-  transition: max-height 0.6s ease; /* Slow down opening/closing of the menu */
+  transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
+
 }
 
-/* Styling for individual nav items */
-.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis, .nav-item-logout {
+/* Styling for the login/logout button */
+.nav-item-logout {
+  color: #192852;
+  padding: 10px;
+  margin-left: auto;
+  background-color: #19d3c5;
+  border-radius: 1.875em;
+  margin-right: 50px;
+
+
+}
+
+.nav-flexbox a:not(.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis):hover {
+  background-color: #55eadd;
+  padding: auto;
+  transition: 0.3s;
+}
+
+
+
+/* Styling for individual nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout) {
   position: relative;
   padding: 10px;
   color: #ffffff;
+  box-sizing: border-box;
+
 }
 
-/* The blue line animation */
-.nav-flexbox a::after {
+/* The blue line animation for all nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout)::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
   width: 0;
   height: 3px;  /* Adjust height of the underline */
-  background-color: #62defa; /* Blue line color */
+  background-color: #19d3c5; /* Blue line color */
   transition: width 0.4s ease; /* Controls the speed of the line appearing */
 }
 
@@ -62,29 +90,96 @@ a {
   display: none;
   font-size: 2em;
   cursor: pointer;
-  color: #ffffff;
+  color: #19d3c5;
   padding: 10px;
-  background-color: #192851;
+  background-color: #192852;
   justify-content: center;
   align-items: center;
 }
 
 /* Media query for smaller screens */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .nav-flexbox {
     flex-direction: column;
-    background-color: #192851;
-    max-height: 0;  /* Collapsed by default */
+    background-color: #192852;
+    max-height: 0;  /* Start with a collapsed menu */
     overflow: hidden;  /* Hide content when collapsed */
-    transition: max-height 0.6s ease;  /* Smooth transition for opening and closing */
+    transition: max-height 0.3s ease;  /* Smooth transition for opening and closing */
+    justify-content: center;
+    align-items: center;
   }
 
   .burger {
     display: flex; /* Show the burger icon */
+    justify-content: center; 
+    align-items: center;
   }
 
   /* Show the menu when the 'show' class is added */
   .nav-flexbox.show {
-    max-height: 1000px;  /* Large max-height for smooth transitions */
+    max-height: 800px;  /* Large max-height for smooth transitions */
+    min-height: 150vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Styling for the login/logout button */
+    .nav-item-logout {
+      padding: 10px;
+      color: #ffffff;
+      margin-right: auto; /* Push the button to the right */
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+    }
+}
+
+/* Styling for the main content */
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
+
+.main-title-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  color: #192852;
+  font-size: 2em;
+  height: 5%;
+}
+
+.main-title-content-h1 {
+  animation: fadeIn 3s;
+  position: relative;
+}
+
+/* The blue line animation for all nav items except for .nav-item-logout */
+.main-title-content-h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #192852; /* Blue line color */
+  transition: width 2s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.main-title-content-h1:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.main-title-content-h1 a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+

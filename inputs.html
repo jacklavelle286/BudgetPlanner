@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-  <title>Income</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+  <title>Income Details</title>
 </head>
 <body>
   <div class="grid-container">
     <nav class="nav-container">
-      <div class="nav-flexbox">
+      <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
+      <div class="nav-flexbox" id="nav-links">
         <a href="budget.html" class="nav-item-home">Home</a>
         <a href="graphs.html" class="nav-item-graphs">Graphs</a>
         <a href="inputs.html" class="nav-item-income">Income</a>
@@ -20,8 +23,13 @@
         <a href="logout.html" class="nav-item-logout">Logout</a>
       </div>
     </nav>
-    
+    <div class="main-title-content">
+      <h1 class="main-title-content-h1">Income Details</h1>
+    </div>
+    <p class="main-title-p">Click the 'add Income' button to add a job, income, category and other important job information to your budget.</p>
+
   </div>
-  <script src="script.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
