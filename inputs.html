@@ -26,8 +26,38 @@
     <div class="main-title-content">
       <h1 class="main-title-content-h1">Income Details</h1>
     </div>
-    <p class="main-title-p">Click the 'add Income' button to add a job, income, category and other important job information to your budget.</p>
-
+    <div class="main-title-content-border-box">
+      <p class="main-title-p">Click the 'add Income' button to add a job, income, category and other important job information to your budget.</p>
+      <button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Income</button>
+      <div id="income-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="close-cross" onclick="toggleForm()">&times;</span>
+          <form class="modal-internal-content" action="script.js" method="post">
+            <label class="modal-internal-content-job-label" for="job">Job:</label>
+            <input class="modal-internal-content-job-input" placeholder="Senior Software Engineer" type="text" id="job" name="job" required>
+            <label for="income">Income:</label>
+            <input type="number" id="income" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="£100,000" name="income" required>
+            <label for="category">Category:</label>
+            <select name="category" id="category required">
+                <option value="devops">DevOps</option>
+                <option value="cloud-architecture">Cloud Architecture</option>
+                <option value="consultant">Consultant</option>
+                <option value="software-development">Software Development</option>
+                <option value="data-science">Data Science</option>
+                <option value="cyber-security">Cyber Security</option>
+                <option value="network-engineering">Network Engineering</option>
+                <option value="project-management">Project Management</option>
+                <option value="technical-support">Technical Support</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="date">Start Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="image" class="main-title-content-border-box-button">Upload Company Logo:</label>
+            <input type="file" id="image" name="image" class="file-input">
+            <input type="submit" value="Submit" class="default-submit-button">
+          </form>
+        </div>
+      </div>
   </div>
 
 <script src="script.js"></script>

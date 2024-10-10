@@ -6,9 +6,30 @@ body {
   background-color: #F5F5F5;
 }
 
+/* Remove default list styles */
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Default button styles */
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.default-submit-button {
+  font-size: 1.5em;
+  background-color: #19d3c5; /* Blue button color */
+  color: #192852; 
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin:  20px; /* Add some space between the button and the text */
+  width: 50%;
+  border: 5px white;
 }
 
 /* Main grid container */
@@ -17,7 +38,6 @@ a {
   height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
-  
 }
 
 .nav-flexbox {
@@ -25,16 +45,16 @@ a {
   justify-content: space-between;
   gap: 30px;
   align-items: center;
+  color: #192852;
   background-color: #192852;
   height: 60%;
   font-size: 1.5em;
   max-height: 1000px; /* Use a larger max-height for smoother transitions */
   overflow: hidden;  /* Hide the overflow content */
   transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
-
 }
 
-/* Styling for the login/logout button */
+/* Styling for the logout button */
 .nav-item-logout {
   color: #192852;
   padding: 10px;
@@ -42,17 +62,16 @@ a {
   background-color: #19d3c5;
   border-radius: 1.875em;
   margin-right: 50px;
-
-
+  padding: 10px 20px; /* Padding inside the button */
+  border: 5px white;
 }
 
 .nav-flexbox a:not(.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis):hover {
   background-color: #55eadd;
+  color: #192852;
   padding: auto;
   transition: 0.3s;
 }
-
-
 
 /* Styling for individual nav items except for .nav-item-logout */
 .nav-flexbox a:not(.nav-item-logout) {
@@ -60,7 +79,6 @@ a {
   padding: 10px;
   color: #ffffff;
   box-sizing: border-box;
-
 }
 
 /* The blue line animation for all nav items except for .nav-item-logout */
@@ -97,45 +115,47 @@ a {
   align-items: center;
 }
 
-/* Media query for smaller screens */
+/* Media query for smaller screens for nav */
 @media (max-width: 1000px) {
   .nav-flexbox {
     flex-direction: column;
     background-color: #192852;
+    color: #192852;
     max-height: 0;  /* Start with a collapsed menu */
     overflow: hidden;  /* Hide content when collapsed */
     transition: max-height 0.3s ease;  /* Smooth transition for opening and closing */
     justify-content: center;
     align-items: center;
+    height: auto;
   }
 
   .burger {
     display: flex; /* Show the burger icon */
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
   }
 
   /* Show the menu when the 'show' class is added */
   .nav-flexbox.show {
     max-height: 800px;  /* Large max-height for smooth transitions */
-    min-height: 150vh;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 
-  /* Styling for the login/logout button */
-    .nav-item-logout {
-      padding: 10px;
-      color: #ffffff;
-      margin-right: auto; /* Push the button to the right */
-      margin-top: 10px;
-      margin-bottom: 10px;
+  .burger.show {
+    display: none; /* Hide the burger icon when the menu is open */
+  }
 
-    }
+  /* Styling for the login/logout button */
+  .nav-item-logout {
+    margin-right: auto; /* Push the button to the right */
+    margin-bottom: 10px;
+    padding: 10px 20px; /* Padding inside the button */
+    border: 5px;
+  }
 }
 
 /* Styling for the main content */
-
 
 @keyframes fadeIn {
   from {
@@ -153,12 +173,13 @@ a {
   background-color: #F5F5F5;
   color: #192852;
   font-size: 2em;
-  height: 5%;
+  height: 75%;
 }
 
 .main-title-content-h1 {
   animation: fadeIn 3s;
   position: relative;
+  text-align: center;
 }
 
 /* The blue line animation for all nav items except for .nav-item-logout */
@@ -170,7 +191,7 @@ a {
   width: 0;
   height: 3px;  /* Adjust height of the underline */
   background-color: #192852; /* Blue line color */
-  transition: width 2s ease; /* Controls the speed of the line appearing */
+  transition: width 1.2s ease; /* Controls the speed of the line appearing */
 }
 
 /* On hover, extend the blue line */
@@ -183,3 +204,124 @@ a {
   transition: width 0.4s ease; /* Slow undo of the line when unhovered */
 }
 
+/* Styling for the main content box */
+.main-title-content-border-box {
+  display: flex;
+  background-color: #192852; /* Lighter background to contrast the border */
+  margin: 20px auto; /* Center the box with some space */
+  padding: 20px; /* Add some padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: 80%; /* 80% of the parent container */
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title-p {
+  font-size: 1.5em;
+  margin: 20px; /* Add some space between the text and the border */
+  text-align: center; /* Center the text */
+}
+
+.main-title-content-border-box-button {
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+  border: 5px solid #19d3c5;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  transition: 1s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  align-items: center;
+  height: 50%;
+  width: 60%;
+  text-align: center;
+  flex-direction: column;
+  background-color: #192852;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  height: fit-content;
+}
+
+/* Modal internal content */
+.modal-internal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 10px;
+  width: 80%; /* Ensures consistent width for all inputs */
+  font-family: Afacad, sans-serif;
+}
+
+/* Make all inputs, selects, and buttons uniform in width */
+.modal-internal-content input, 
+.modal-internal-content select, 
+.modal-internal-content button, 
+.modal-internal-content label {
+  width: 100%; /* Consistent width */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+input, option, select {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid #19d3c5;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  font-size: 1000px;
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
