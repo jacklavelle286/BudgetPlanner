@@ -26,6 +26,7 @@ window.onclick = function(event) {
  }
 }
 
+
 document.addEventListener('input', function (event) {
   if (event.target.tagName.toLowerCase() === 'textarea') {
     autoGrow(event.target);
