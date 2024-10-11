@@ -49,6 +49,8 @@ button {
   background-color: #192852;
   height: 60%;
   font-size: 1.5em;
+  height: fit-content;
+  padding: 10px;
   max-height: 1000px; /* Use a larger max-height for smoother transitions */
   overflow: hidden;  /* Hide the overflow content */
   transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
