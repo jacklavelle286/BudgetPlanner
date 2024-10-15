@@ -1,455 +1,521 @@
-  /* Global styles */
+/* Global styles */
 
-  body {
-    margin: 0;
-    font-family: Afacad, sans-serif;
-    background-color: #ddd5d0;
-    font-weight: lighter;
-  }
+body {
+  margin: 0;
+  font-family: Afacad, sans-serif;
+  background-color: #ddd5d0;
+  font-weight: lighter;
+}
 
-  /* Remove default list styles */
+/* Remove default list styles */
 
-  /* Default button styles */
+/* Default button styles */
 
-  button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-  }
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
 
-  .default-submit-button {
-    font-size: 1.5em;
-    background-color: #19d3c5; /* Blue button color */
-    color: #192852; 
-    padding: 10px 20px; /* Padding inside the button */
-    border-radius: 5px; /* Rounded corners */
-    margin:  20px; /* Add some space between the button and the text */
-    width: 50%;
-    border: 5px white;
-  }
+.default-submit-button {
+  font-size: 1.5em;
+  background-color: #19d3c5; /* Blue button color */
+  color: #192852; 
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin:  20px; /* Add some space between the button and the text */
+  width: 50%;
+  border: 5px white;
+}
 
-  /* Main grid container */
-  .grid-container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-  }
+/* Main grid container */
+.grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
 
+.nav-flexbox {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  color: #192852;
+  background-color: #192852;
+  height: 60%;
+  font-size: 1.5em;
+  height: fit-content;
+  overflow: hidden;  /* Hide the overflow content */
+  transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
+}
+
+.nav-flexbox a {
+  text-decoration: unset;
+  color: inherit;
+}
+
+/* Styling for the logout button */
+.nav-item-logout {
+  color: #192852;
+  padding: 10px;
+  margin-left: auto;
+  background-color: #19d3c5;
+  border-radius: 1.875em;
+  margin-right: 50px;
+  padding: 10px 20px; /* Padding inside the button */
+  border: 5px white;
+}
+
+.nav-flexbox a:not(.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis):hover {
+  background-color: #55eadd;
+  color: #192852;
+  padding: auto;
+  transition: 0.3s;
+}
+
+/* Styling for individual nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout) {
+  position: relative;
+  padding: 10px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* The blue line animation for all nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #19d3c5; /* Blue line color */
+  transition: width 0.4s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.nav-flexbox a:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.nav-flexbox a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+
+/* Burger icon */
+.burger {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #19d3c5;
+  padding: 10px;
+  background-color: #192852;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media query for smaller screens for nav */
+@media (max-width: 1000px) {
   .nav-flexbox {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
-    color: #192852;
+    flex-direction: column;
     background-color: #192852;
-    height: 60%;
-    font-size: 1.5em;
-    height: fit-content;
-    overflow: hidden;  /* Hide the overflow content */
-    transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
-  }
-
-  .nav-flexbox a {
-    text-decoration: unset;
-    color: inherit;
-  }
-
-  /* Styling for the logout button */
-  .nav-item-logout {
     color: #192852;
-    padding: 10px;
-    margin-left: auto;
-    background-color: #19d3c5;
-    border-radius: 1.875em;
-    margin-right: 50px;
-    padding: 10px 20px; /* Padding inside the button */
-    border: 5px white;
+    max-height: 0;  /* Start with a collapsed menu */
+    overflow: hidden;  /* Hide content when collapsed */
+    transition: max-height 0.3s ease;  /* Smooth transition for opening and closing */
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
 
-  .nav-flexbox a:not(.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis):hover {
-    background-color: #55eadd;
-    color: #192852;
-    padding: auto;
-    transition: 0.3s;
-  }
-
-  /* Styling for individual nav items except for .nav-item-logout */
-  .nav-flexbox a:not(.nav-item-logout) {
-    position: relative;
-    padding: 10px;
-    color: #ffffff;
-    box-sizing: border-box;
-  }
-
-  /* The blue line animation for all nav items except for .nav-item-logout */
-  .nav-flexbox a:not(.nav-item-logout)::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;  /* Adjust height of the underline */
-    background-color: #19d3c5; /* Blue line color */
-    transition: width 0.4s ease; /* Controls the speed of the line appearing */
-  }
-
-  /* On hover, extend the blue line */
-  .nav-flexbox a:hover::after {
-    width: 100%; /* The line grows to the full width of the nav item's text */
-  }
-
-  /* Undo the hover effect with slow removal of the line */
-  .nav-flexbox a::after {
-    transition: width 0.4s ease; /* Slow undo of the line when unhovered */
-  }
-
-  /* Burger icon */
   .burger {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #19d3c5;
-    padding: 10px;
-    background-color: #192852;
+    display: flex; /* Show the burger icon */
     justify-content: center;
     align-items: center;
   }
 
-  /* Media query for smaller screens for nav */
-  @media (max-width: 1000px) {
-    .nav-flexbox {
-      flex-direction: column;
-      background-color: #192852;
-      color: #192852;
-      max-height: 0;  /* Start with a collapsed menu */
-      overflow: hidden;  /* Hide content when collapsed */
-      transition: max-height 0.3s ease;  /* Smooth transition for opening and closing */
-      justify-content: center;
-      align-items: center;
-      height: auto;
-    }
-
-    .burger {
-      display: flex; /* Show the burger icon */
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Show the menu when the 'show' class is added */
-    .nav-flexbox.show {
-      max-height: 800px;  /* Large max-height for smooth transitions */
-      justify-content: flex-start;
-      align-items: center;
-    }
-
-    .burger.show {
-      display: none; /* Hide the burger icon when the menu is open */
-    }
-
-    /* Styling for the login/logout button */
-    .nav-item-logout {
-      margin-right: auto; /* Push the button to the right */
-      margin-bottom: 10px;
-      padding: 10px 20px; /* Padding inside the button */
-      border: 5px;
-    }
-  }
-
-
-  /* inputs.html styles */ 
-
-  /* Styling for the main content */
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .main-title-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F5F5F5;
-    color: #192852;
-    font-size: 2em;
-    height: 75%;
-  }
-
-  .main-title-content-h1 {
-    animation: fadeIn 3s;
-    position: relative;
-    text-align: center;
-  }
-
-  /* The blue line animation for all nav items except for .nav-item-logout */
-  .main-title-content-h1::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;  /* Adjust height of the underline */
-    background-color: #192852; /* Blue line color */
-    transition: width 1.2s ease; /* Controls the speed of the line appearing */
-  }
-
-  /* On hover, extend the blue line */
-  .main-title-content-h1:hover::after {
-    width: 100%; /* The line grows to the full width of the nav item's text */
-  }
-
-  /* Undo the hover effect with slow removal of the line */
-  .main-title-content-h1 a::after {
-    transition: width 0.4s ease; /* Slow undo of the line when unhovered */
-  }
-
-  /* Styling for the main content box */
-  .main-title-content-border-box {
-    display: flex;
-    background-color: #192852; /* Lighter background to contrast the border */
-    margin: 20px auto; /* Center the box with some space */
-    padding: 20px; /* Add some padding inside the box */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-    color: #ffffff; /* White text color */
-    width: 80%; /* 80% of the parent container */
-    justify-content: center;
+  /* Show the menu when the 'show' class is added */
+  .nav-flexbox.show {
+    max-height: 800px;  /* Large max-height for smooth transitions */
+    justify-content: flex-start;
     align-items: center;
   }
 
-  .main-title-p {
-    font-size: 1.5em;
-    margin: 20px; /* Add some space between the text and the border */
-    text-align: center; /* Center the text */
+  .burger.show {
+    display: none; /* Hide the burger icon when the menu is open */
   }
 
-  .main-title-content-border-box-button {
-    background-color: white;
-    color: #192852;
+  /* Styling for the login/logout button */
+  .nav-item-logout {
+    margin-right: auto; /* Push the button to the right */
+    margin-bottom: 10px;
     padding: 10px 20px; /* Padding inside the button */
-    border-radius: 5px; /* Rounded corners */
-    margin: 20px; /* Add some space between the button and the text */
-    border: 5px solid #19d3c5;
+    border: 5px;
   }
+}
 
-  /* Modal styling */
-  .modal {
-    position: fixed; /* Stay in place */
-    display: none;
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-    transition: 1s;
+
+/* inputs.html styles */ 
+
+/* Styling for the main content */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  /* Modal Content/Box */
-  .modal-content {
-    display: flex;
-    align-items: center;
-    height: 50%;
-    width: 60%;
-    text-align: center;
-    flex-direction: column;
-    background-color: #192852;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: fit-content;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-    color: #ffffff; /* White text color */
-    height: fit-content;
+  to {
+    opacity: 1;
   }
+}
 
-  /* Modal internal content */
-  .modal-internal-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    padding: 10px;
-    width: 80%; /* Ensures consistent width for all inputs */
-    font-family: Afacad, sans-serif;
-  }
+.main-title-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  color: #192852;
+  font-size: 2em;
+  height: 75%;
+}
 
-  /* Make all inputs, selects, and buttons uniform in width */
-  .modal-internal-content input, 
-  .modal-internal-content select, 
-  .modal-internal-content button, 
-  .modal-internal-content label {
-    width: 100%; /* Consistent width */
-    box-sizing: border-box; /* Includes padding and border in width */
-  }
+.main-title-content-h1 {
+  animation: fadeIn 3s;
+  position: relative;
+  text-align: center;
+}
 
-  input, option, select {
-    font-size: 1em;
-    padding: 10px;
-    border-radius: 5px;
-    border: 5px solid #19d3c5;
-  }
+/* The blue line animation for all nav items except for .nav-item-logout */
+.main-title-content-h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #192852; /* Blue line color */
+  transition: width 1.2s ease; /* Controls the speed of the line appearing */
+}
 
-  label {
-    font-size: 1.5em;
-  }
+/* On hover, extend the blue line */
+.main-title-content-h1:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
 
-  .file-input {
-    display: none;
-  }
+/* Undo the hover effect with slow removal of the line */
+.main-title-content-h1 a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
 
-  .upload-button {
-    font-size: 1000px;
-    background-color: white;
-    color: #192852;
-    padding: 10px 20px; /* Padding inside the button */
-    border-radius: 5px; /* Rounded corners */
-    margin: 20px; /* Add some space between the button and the text */
-  }
+/* Styling for the main content box */
+.main-title-content-border-box {
+  display: flex;
+  background-color: #192852; /* Lighter background to contrast the border */
+  margin: 20px auto; /* Center the box with some space */
+  padding: 20px; /* Add some padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: 80%; /* 80% of the parent container */
+  justify-content: center;
+  align-items: center;
+}
 
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    font-size: 28px;
-    font-weight: bold;
-  }
+.main-title-p {
+  font-size: 1.5em;
+  margin: 20px; /* Add some space between the text and the border */
+  text-align: center; /* Center the text */
+}
 
-  .close:hover,
-  .close:focus {
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.main-title-content-border-box-button {
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+  border: 5px solid #19d3c5;
+}
 
+/* Modal styling */
+.modal {
+  position: fixed; /* Stay in place */
+  display: none;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  transition: 1s;
+}
 
-  /* budget.html styles */ 
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  align-items: center;
+  height: 50%;
+  width: 60%;
+  text-align: center;
+  flex-direction: column;
+  background-color: #192852;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  height: fit-content;
+}
 
-  .budget-main-header {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto; 
-  }
+/* Modal internal content */
+.modal-internal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 10px;
+  width: 80%; /* Ensures consistent width for all inputs */
+  font-family: Afacad, sans-serif;
+}
 
-  .budget-main-header-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+/* Make all inputs, selects, and buttons uniform in width */
+.modal-internal-content input, 
+.modal-internal-content select, 
+.modal-internal-content button, 
+.modal-internal-content label {
+  width: 100%; /* Consistent width */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
 
-  .budget-main-header-shared-styles {
-    display: flex;
-    margin: 10px;
-    color:#192852;
-    border-radius: 10px;
-    width:fit-content;
-    padding: 20px;
-    align-items: center;
-    border-radius: 20px;;
+input, option, select {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid #19d3c5;
+}
 
-  }
-  .budget-main-header-title {
-    display: flex;
-    justify-content: center;
-    grid-row-start: 1;
-  }
+label {
+  font-size: 1.5em;
+}
 
-  .budget-main-header-title-2 {
-    display: flex;
-    justify-content: center;
-    grid-row-start: 2;
-  }
+.file-input {
+  display: none;
+}
 
-  .budget-styled-words {
-    color: #6935d3;
-    font-weight: bold;
-    position: relative;
-    
-  }
+.upload-button {
+  font-size: 1000px;
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+}
 
-  .budget-styled-words::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;  /* Adjust height of the underline */
-    background-color: #19d3c5; /* Blue line color */
-    transition: width 0.9s ease; /* Controls the speed of the line appearing */
-  }
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-  /* On hover, extend the blue line */
-  .budget-styled-words:hover::after {
-    width: 100%; /* The line grows to the full width of the nav item's text */
-  }
-
-  /* Undo the hover effect with slow removal of the line */
-  .budget-styled-words a::after {
-    transition: width 0.4s ease; /* Slow undo of the line when unhovered */
-  }
-
-  /* Paragraph styling */
-  .budget-main-header-p {
-    display: flex;
-    text-align: center;
-    background-color: white;
-    color: #192851;
-    border-radius: 25px;
-    width: 50%;
-    padding: 25px;
-    margin: 20px auto;  /* Center the paragraph and add space between elements */
-  }
-
-  /* Styling for the list container */
-  .budget-main-header-list {
-    grid-area: 2 / 1 / 2 / 1;
-    display: flex;
-    text-align: center;
-    background-color: white;
-    color: #192851;
-    border-radius: 25px;
-    width: 50%;
-    padding: 25px;
-    margin: 20px auto;  /* Center the list */
-  }
-
-  /* Styling for the default list */
-  .default-list {
-    list-style: none; /* Remove default list styling */
-    padding: 0;
-    margin: 0;
-    
-  }
-
-  /* Styling for list items */
-  .default-list li {
-    font-weight: bold;
-    font-size: 30px;
-
-  }
-
-  /* Styling for the link in the list */
-  .default-list a {
-    text-decoration: none;
-    color: #19d3c5;
-  }
-
-  .default-list a:hover {
-    text-decoration: underline;
-  } 
+.close:hover,
+.close:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
-  .p-quotes {
-    font-style: italic;
-    font-size: larger;
-  }
+/* budget.html styles */ 
+
+.budget-main-header {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto; 
+}
+
+.budget-main-header-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-main-header-shared-styles {
+  display: flex;
+  margin: 10px;
+  color:#192852;
+  border-radius: 10px;
+  width:fit-content;
+  padding: 20px;
+  align-items: center;
+  border-radius: 20px;;
+
+}
+.budget-main-header-title {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 1;
+}
+
+.budget-main-header-title-2 {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 2;
+}
+
+.budget-styled-words {
+  color: #6935d3;
+  font-weight: bold;
+  position: relative;
+  
+}
+
+.budget-styled-words::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #19d3c5; /* Blue line color */
+  transition: width 0.9s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.budget-styled-words:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.budget-styled-words a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+
+/* Paragraph styling */
+.budget-main-header-p {
+  display: flex;
+  text-align: center;
+  background-color: white;
+  color: #192851;
+  border-radius: 25px;
+  width: 60%;
+  padding: 25px;
+  margin: 20px auto;  /* Center the paragraph and add space between elements */
+}
+
+/* Styling for the list container */
+.budget-main-header-list {
+  grid-area: 2 / 1 / 2 / 1;
+  display: flex;
+  text-align: center;
+  background-color: white;
+  color: #192851;
+  border-radius: 25px;
+  width: 60%;
+  padding: 25px;
+  margin: 20px auto;  /* Center the list */
+}
+
+/* Styling for the default list */
+.default-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+  
+}
+
+/* Styling for list items */
+.default-list li {
+  font-weight: bold;
+  font-size: 30px;
+
+}
+
+/* Styling for the link in the list */
+.default-list a {
+  text-decoration: none;
+  color: #19d3c5;
+}
+
+.default-list a:hover {
+  text-decoration: underline;
+} 
+
+
+.p-quotes {
+  font-style: italic;
+  font-size: larger;
+}
+
+/* Graphs.html styling */ 
+
+.graphs-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single full-width column for the first row */
+  grid-template-rows: auto 1fr; /* First row adjusts to content, second row is the grid */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  gap: 10px; /* Gap between grid items */
+}
+
+.full-width-header {
+  grid-column: 1 / -1; /* Make the header span across the entire width */
+  padding: 20px;
+  color:#192851;
+  text-align: center;
+}
+
+.graphs-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+  grid-template-rows: repeat(2, 1fr);    /* 2 equal-height rows */
+  gap: 70px; /* Gap between grid items */
+  justify-content: center; /* Centers the grid horizontally */
+  align-content: center; /* Centers the grid vertically */
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content; /* Ensure the grid doesn't take up more space than necessary */
+}
+
+
+.graph-item img {
+  width: 20vh; /* Set a fixed width */
+  height: 20vh; /* Set a fixed height */
+  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+  display: block;
+  padding: 25px;
+}
+ 
+.graph-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #192851;
+  border-radius: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  border: solid #ffffff 10px; 
+}
+
+.graph-item:hover {
+  border:#19d3c5 solid 10px 
+}
+
+.graph-item-1 {
+grid-area: auto;
+}
+
+.graph-item-2 {
+grid-area: auto;
+}
+
+
+

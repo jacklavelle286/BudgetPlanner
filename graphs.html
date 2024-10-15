@@ -10,18 +10,31 @@
   <title>Graphs</title>
 </head>
 <body>
-  <div class="grid-container">
-    <nav class="nav-container">
-      <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
-      <div class="nav-flexbox" id="nav-links">
-        <a href="budget.html" class="nav-item-home">Home</a>
-        <a href="graphs.html" class="nav-item-graphs">Graphs</a>
-        <a href="inputs.html" class="nav-item-income">Income</a>
-        <a href="analysis.html" class="nav-item-analysis">Analysis</a>
-        <a href="logout.html" class="nav-item-logout">Logout</a>
-      </div>
-    </nav>
+  <nav class="nav-container">
+    <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
+    <div class="nav-flexbox" id="nav-links">
+      <a href="budget.html" class="nav-item-home">Home</a>
+      <a href="graphs.html" class="nav-item-graphs">Graphs</a>
+      <a href="inputs.html" class="nav-item-income">Income</a>
+      <a href="analysis.html" class="nav-item-analysis">Analysis</a>
+      <a href="logout.html" class="nav-item-logout">Logout</a>
+    </div>
+  </nav>
+  <div class="graphs-container">
+    <div class="full-width-header">
+      <h1>Graphs</h1>
+      <p class="budget-main-header-p">This section is where you can dynamically create graphs based on the spend and income categories recieved in prior steps. 
+        Simply select graphs items and generate graphs, and click on them to highlight patterns in spend and take action.</p>
+    </div>
+    <div class="graphs-grid-container">
+      <div class="graph-item graph-item-1"><button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Graph</button></a></div>
+      <div class="graph-item graph-item-2"><button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Graph</button></div>
+      <div class="graph-item graph-item-3"><button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Graph</button></div>
+      <div class="graph-item graph-item-4"><button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Graph</button></div>
+    </div>
   </div>
+
+
 
 <script src="script.js"></script>
 </body>
