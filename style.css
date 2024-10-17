@@ -269,6 +269,39 @@ button {
 }
 
 
+/* Modal styling */
+.modal {
+  position: fixed; /* Stay in place */
+  display: none; /* Hidden by default */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
+  backdrop-filter: blur(10px); /* Apply the glass effect */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: fit-content; /* Fit content width */
+  max-width: 80%; /* Optional: limit maximum width */
+  height: 80%;
+}
+
+
 /* Modal internal content */
 .modal-internal-content {
   display: flex;
@@ -329,6 +362,19 @@ label {
   cursor: pointer;
 }
 
+.input-modal-content {
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: fit-content; /* Fit content width */
+  max-width: 80%; /* Optional: limit maximum width */
+}
 
 /* budget.html styles */ 
 
@@ -527,7 +573,6 @@ grid-area: auto;
 
  .item {
   padding: 10px;
-  border: #192851 solid 10px;
   border-radius: 25px;;
  }
  
@@ -541,13 +586,58 @@ grid-area: auto;
  
  .item-1, .item-2, .item-3, .item-4 {
   background-color: #ffffff;
+  border: 10px solid white;
  }
 
  .item:hover{
-  background-color: #cccccc;
-  transition: .7s;
+  border: 10px solid #192851;
  }
  
+ .item:active{
+  background-color:#19d3c5;
+ }
 
 
- /* on click add a modal which pops up more detailed instructions onw what do to
+ /* on click add a modal which pops up more detailed instructions */
+
+ .create-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  text-wrap: wrap;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
+  backdrop-filter: blur(10px); /* Apply the glass effect */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+ }
+
+
+ .create-modal-instructions-1 p,
+ .create-modal-instructions-2 p,
+ .create-modal-instructions-3 p,
+ .create-modal-instructions-4 p
+ 
+ {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size:larger;
+    color: #000000;
+    background-color: #ffffff;
+    border: #000000 solid 10px;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 10px;
+    width: 80%; /* Ensures consistent width for all inputs */
+    border-radius: 25px;
+    padding: 20px;; 
+  }
