@@ -231,11 +231,14 @@ button {
 .main-title-content-border-box-button {
   background-color: white;
   color: #192852;
-  padding: 10px 20px; /* Padding inside the button */
   border-radius: 5px; /* Rounded corners */
   margin: 20px; /* Add some space between the button and the text */
-  border: 5px solid #19d3c5;
 }
+
+.main-title-content-border-box-button:active {
+  color: #0a1021;
+}
+
 
 /* Modal styling */
 .modal {
@@ -452,6 +455,7 @@ label {
   width: 60%;
   padding: 25px;
   margin: 20px auto;  /* Center the paragraph and add space between elements */
+  height: fit-content;
 }
 
 /* Styling for the list container */
@@ -502,11 +506,12 @@ label {
 
 .graphs-container {
   display: grid;
-  grid-template-columns: 1fr; /* Single full-width column for the first row */
-  grid-template-rows: auto 1fr; /* First row adjusts to content, second row is the grid */
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  gap: 10px; /* Gap between grid items */
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  width: 100vw;
+  min-height: 100vh; /* Use min-height instead of height */
+  gap: 10px;
+  padding-bottom: 20px; /* Add some padding at the bottom */
 }
 
 .full-width-header {
@@ -519,12 +524,10 @@ label {
 .graphs-grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr)); /* Ensures consistent item height */
-  gap: 20px; /* Adjust as necessary */
-  justify-content: space-evenly;
-  align-content: space-evenly;
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
 }
-
 
 
 .graph-item img {
@@ -537,18 +540,18 @@ label {
  
 .graph-item {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #192851;
+  background-color: #ffffff;
   border-radius: 20px;
-  padding-left: 100px;
-  padding-right: 100px;
-  border: solid #ffffff 10px; 
+  padding: 20px;
+  border: solid #ffffff 5px;
+  transition: border-color 0.3s ease;
 }
 
-.graph-item:hover {
-  border:#19d3c5 solid 10px 
+.graph-item:active {
+  border: solid 5px;
 }
 
 .graph-item-1 {
