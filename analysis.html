@@ -10,7 +10,7 @@
   <title>Analysis</title>
 </head>
 <body>
-  <div class="grid-container">
+  <div class="grid-container-create">
     <nav class="nav-container">
       <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
       <div class="nav-flexbox" id="nav-links">
@@ -23,6 +23,51 @@
       </div>
     </nav>
   </div>
+  <div class="main-title-content">
+    <h1 class="main-title-content-h1 create-header">Analysis</h1>
+  </div>
+  <div class="analysis-grid">
+    <div class="analysis-header">
+      <h1>Use <span class="budget-styled-words">Artificial Intelligence</span>  as your own personal financial advisor.</h1>
+    </div>
+    <div class="analysis-left-main">
+      <p>You can use this section of the application to prompt our generative AI serivce to ask questions on how you could be saving
+        more money. It will understand the context of your budget and make customized and tailored responses to your questions. Some example questions may include:
+      </p>            
+      <p class ="p-quotes styled-p-quotes">"Where can I cut back in my budget to save an extra £100 per month?</p>
+      <p class ="p-quotes styled-p-quotes">"How much can I save per year to put towards a new car based on my current budget?</p>
+      <p class ="p-quotes styled-p-quotes">"Do you have any recommendations with what I can do with my extra savings each month?</p>
+      <button class="budget-styled-words-edit" id="ai-modal-button" onclick="toggleAi()"> 
+        <img src="images/ai-robot-button.jpg" alt="ai-robot">
+        <p>Click me to Generate AI recommendations.</p>
+      </button>
+    </div>
+    <div class="analysis-right-main ai-content-box">
+      <p class="typewriter">Your AI Generated content will appear here</p>
+    </div>
+    <div class="analysis-footer">
+      <p></p>
+    </div>
+  </div>
+  <div id="ai-modal" class="modal">
+    <div class="ai-modal-content">
+      <span class="close" id="close-cross" onclick="toggleAi()">&times;</span>
+      <form class="ai-modal-internal-content" action="ai.js" method="post">
+        <label class="modal-internal-content-ai-label" for="ai">Ask a question:</label>
+        <input class="modal-internal-content-ai-input" placeholder="How can I save an extra £50 per month?" type="text" id="job" name="job" required>
+        <label for="income">AI Chat Style:</label>
+        <select name="category" id="category required">
+            <option value="conversational">Conversational</option>
+            <option value="technical">Technical</option>
+            <option value="analytical">Analytical</option>
+        </select>
+        <input type="submit" value="Submit" class="default-submit-button">
+      </form>
+    </div>
+  </div>
+  
 <script src="script.js"></script>
+<script src="ai.js"></script>
+
 </body>
 </html>

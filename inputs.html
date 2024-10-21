@@ -12,7 +12,7 @@
   <title>Income Details</title>
 </head>
 <body>
-  <div class="grid-container">
+  <div class="grid-container-create">
     <nav class="nav-container">
       <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
       <div class="nav-flexbox" id="nav-links">
@@ -24,13 +24,15 @@
         <a href="logout.html" class="nav-item-logout">Logout</a>
       </div>
     </nav>
-    <div class="main-title-content">
-      <h1 class="main-title-content-h1">Income Details</h1>
-    </div>
+  </div>
+
+  <div class="main-title-content">
+    <h1 class="main-title-content-h1 create-header">Create Your Budget</h1>
+  </div>
     <div class="main-title-content-border-box">
       <p class="main-title-p">Click the 'add Income' button to add a job, income, category and other important job information to your budget.</p>
       <button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Income</button>
-      <div id="income-modal" class="modal">
+      <div id="ai-modal" class="modal">
         <div class="modal-content">
           <span class="close" id="close-cross" onclick="toggleForm()">&times;</span>
           <form class="modal-internal-content" action="script.js" method="post">
@@ -53,8 +55,6 @@
             </select>
             <label for="date">Start Date:</label>
             <input type="date" id="date" name="date" required>
-            <label for="image" class="main-title-content-border-box-button">Upload Company Logo:</label>
-            <input type="file" id="image" name="image" class="file-input">
             <input type="submit" value="Submit" class="default-submit-button">
           </form>
         </div>

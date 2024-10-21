@@ -7,6 +7,36 @@ body {
   font-weight: lighter;
 }
 
+
+.typewriter-line {
+  font-family: monospace;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid black;  /* Blinking cursor effect */
+  width: 0;  /* Start with no width */
+  animation: none;  /* Initially no animation */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: black;
+  }
+}
+
+
 /* Remove default list styles */
 
 /* Default button styles */
@@ -27,6 +57,12 @@ button {
   width: 50%;
   border: 5px white;
 }
+
+.default-submit-button:active {
+  box-shadow: 0 5px 5px #666;
+  transform: translateY(2px);
+}
+
 
 /* Main grid container */
 .grid-container {
@@ -231,8 +267,11 @@ button {
 .main-title-content-border-box-button {
   background-color: white;
   color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
   border-radius: 5px; /* Rounded corners */
   margin: 20px; /* Add some space between the button and the text */
+  border: 5px solid #19d3c5;
+  min-width: none;
 }
 
 .main-title-content-border-box-button:active {
@@ -240,37 +279,6 @@ button {
 }
 
 
-/* Modal styling */
-.modal {
-  position: fixed; /* Stay in place */
-  display: none; /* Hidden by default */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
-  backdrop-filter: blur(10px); /* Apply the glass effect */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
-
-
-/* Modal Content/Box */
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #192852;
-  margin: 0; /* Remove margin */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-  color: #ffffff; /* White text color */
-  width: fit-content; /* Fit content width */
-  max-width: 80%; /* Optional: limit maximum width */
-}
-
 
 /* Modal styling */
 .modal {
@@ -299,9 +307,8 @@ button {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
   color: #ffffff; /* White text color */
-  width: fit-content; /* Fit content width */
   max-width: 80%; /* Optional: limit maximum width */
-  height: 80%;
+  height: fit-content;
 }
 
 
@@ -311,10 +318,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   text-align: center;
-  padding: 10px;
-  width: 80%; /* Ensures consistent width for all inputs */
   font-family: Afacad, sans-serif;
 }
 
@@ -351,19 +355,7 @@ label {
   margin: 20px; /* Add some space between the button and the text */
 }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 .input-modal-content {
   display: flex;
@@ -379,7 +371,7 @@ label {
   max-width: 80%; /* Optional: limit maximum width */
 }
 
-/* budget.html styles */ 
+/* home.html styles */ 
 
 .budget-main-header {
   display: grid;
@@ -452,32 +444,57 @@ label {
   background-color: white;
   color: #192851;
   border-radius: 25px;
-  width: 60%;
+  width: 80%;
   padding: 25px;
   margin: 20px auto;  /* Center the paragraph and add space between elements */
   height: fit-content;
 }
 
+.typewriter {
+  font-family: monospace;  /* Monospace font for typewriter effect */
+  display: inline-block;
+  overflow: hidden;  /* Hide the text initially */
+  white-space: nowrap;  /* Prevents the text from wrapping */
+  text-align: center;  /* Center the text */
+  width: 0;  /* Start with no width */
+  animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;  /* Type the full width of the text */
+  }
+}
+
+
 /* Styling for the list container */
 .budget-main-header-list {
-  grid-area: 2 / 1 / 2 / 1;
   display: flex;
-  text-align: center;
+  flex-direction: column;  /* Align items in a vertical direction */
+  justify-content: center;  /* Center the content */
+  align-items: center;      /* Center horizontally */
+  text-align: center;       /* Center text inside the list */
   background-color: white;
   color: #192851;
   border-radius: 25px;
-  width: 60%;
+  width: 80%;               /* Ensure it's a percentage of the container */
   padding: 25px;
-  margin: 20px auto;  /* Center the list */
+  margin: 20px auto;        /* Center the list container */
 }
 
 /* Styling for the default list */
 .default-list {
-  list-style: none; /* Remove default list styling */
+  list-style: none;  /* Remove default list styling */
   padding: 0;
   margin: 0;
-  
+  width: 100%;       /* Make the list fill the container width */
+  text-align: center;
 }
+
+
 
 /* Styling for list items */
 .default-list li {
@@ -501,6 +518,28 @@ label {
   font-style: italic;
   font-size: larger;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  opacity: 0; /* Hidden by default */
+  transform: translateX(-100%); /* Start off-screen */
+  transition: opacity 0.5s ease-out;
+}
+
+.slide-in.active {
+  animation: slideInFromLeft 1s forwards; /* Trigger the animation */
+}
+
 
 /* Graphs.html styling */ 
 
@@ -545,9 +584,10 @@ label {
   text-align: center;
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 20px;
   border: solid #ffffff 5px;
   transition: border-color 0.3s ease;
+  width: 70%;
+  justify-self: center;
 }
 
 .graph-item:active {
@@ -607,7 +647,7 @@ grid-area: auto;
   display: none; /* Hidden by default */
   position: fixed;
   z-index: 1; /* Sit on top */
-  color: white;
+  color: rgba(255, 255, 255, 0);
   border-radius: 10px;
   text-align: center;
   text-wrap: wrap;
@@ -620,6 +660,7 @@ grid-area: auto;
   backdrop-filter: blur(10px); /* Apply the glass effect */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
+  font-family: Afacad, sans-serif;
  }
 
 
@@ -629,18 +670,144 @@ grid-area: auto;
  .create-modal-instructions-4 p
  
  {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size:larger;
+
     color: #000000;
-    background-color: #ffffff;
-    border: #000000 solid 10px;
     align-items: center;
     gap: 10px;
     text-align: center;
-    padding: 10px;
-    width: 80%; /* Ensures consistent width for all inputs */
-    border-radius: 25px;
-    padding: 20px;; 
+    font-size: 3vh;
+
   }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto 1fr auto; /* Rows for header, main content, and footer */
+    grid-template-areas:
+      "header header"
+      "left-main right-main"
+      "footer footer";
+    gap: 0; /* Adjust if needed */
+  }
+  
+  .analysis-header {
+    grid-area: header;
+    padding: 20px;
+    text-align: center; /* Center content horizontally */
+    background-color: #f0f0f0; /* Optional styling */
+  }
+  
+  .analysis-left-main {
+    color: white;
+    grid-area: left-main;
+    padding: 20px;
+    background-color:#192851;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .analysis-left-main img {
+    height: 100px;
+    width: 100px;
+    border-bottom: #000000 solid 5px;
+    border-right: #000000 solid 5px;
+    border-radius: 15px;
+    position:relative;
+    cursor: pointer;
+
+    transition: filter 0.5s ease;
+  }
+  
+
+  /* Modal Content/Box */
+.ai-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: 80%;
+}
+
+
+/* Modal internal content */
+.ai-modal-internal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Afacad, sans-serif;
+}
+
+.modal-internal-content-ai-input {
+  height: auto;
+  width: 1000px;
+}
+
+/* Make all inputs, selects, and buttons uniform in width */ 
+.ai-modal-internal-content input
+.ai-modal-internal-content select, 
+.ai-modal-internal-content button, 
+.ai-modal-internal-content label {
+
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+  
+  .analysis-left-main img:active {
+    box-shadow: 0 5px 5px #666;
+    transform: translateY(2px);
+  }
+  
+  .analysis-left-main img:hover {
+    filter: hue-rotate(120deg);
+
+  }
+  
+
+
+
+
+  .budget-styled-words-edit {
+    color: white !important;
+  }
+
+
+  .analysis-right-main {
+    display: flex;
+    grid-area: right-main;
+    background-color: #d0d0d0; /* Optional styling */
+    justify-self: center;
+  }
+
+  .ai-content-box {
+    background-color: white;
+    border: #192851 solid 5px;
+    border-radius: 5px;
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+    font-size: 28.5px;
+
+  }
+  
+  .analysis-footer {
+    grid-area: footer;
+    padding: 20px;
+    text-align: center; /* Center content horizontally */
+
+  }
+  
+
+  .styled-p-quotes {
+    text-align: left;
+  }
+
+
