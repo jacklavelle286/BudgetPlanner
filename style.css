@@ -810,4 +810,52 @@ grid-area: auto;
     text-align: left;
   }
 
+/* landing page */
+.landing-grid {
+  display: grid;
+  grid-template-rows: 20% 40% 40%; /* Adjust the percentages as needed */
+  grid-template-columns: 100%; /* Single column taking up the full width */
+}
 
+.header-landing-grid {
+  grid-area: 1 / 1;
+  display: flex;
+  justify-content: space-between; /* Pushes the h1 to the left and button to the right */
+  align-items: center; /* Vertically aligns the items */
+  padding: 0 20px; /* Add padding to the sides */
+}
+
+.header-landing-h1 {
+  flex-grow: 1; /* Ensures the h1 takes up available space */
+  font-size: 2.5em; /* Adjust the size of the text */
+  color: #0a1021;
+}
+
+.login-button {
+  font-size: 1.5em;
+  background-color: #19d3c5; /* Blue button color */
+  color: #192852; 
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin:  20px; /* Add some space between the button and the text */
+  border: none;
+}
+
+.body-1-landing-grid {
+  grid-area: 2 / 1;
+  background-color: #c8dddc;
+  width: 100%; /* Ensures the width spans the entire grid column */
+  height: 100%; /* Fills the height of the grid row */
+  color: #0a1021;
+  align-self: center;
+}
+
+.body-1-landing-grid-internal {
+  display: grid;
+  grid-template-columns: 30% 50% 20%;
+  grid-template-rows: auto;
+}
+
+.body-2-landing-grid {
+  grid-area: 3 / 1;
+}
