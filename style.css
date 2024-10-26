@@ -965,7 +965,7 @@ grid-area: auto;
   display: none; /* Hidden by default */
   width: 100%; /* Full width */
   height: 60%; /* Full height */
-  background-color:#6935d3;
+  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
   backdrop-filter: blur(10px); /* Apply the glass effect */
   transition: opacity 0.5s ease, visibility 0.5s ease;
 
