@@ -913,3 +913,29 @@ grid-area: auto;
 }
 
 
+.body-end-landing-grid {
+  display: grid;
+  grid-template: 1fr / repeat(3, 3fr); /* 1fr row fills remaining space */
+  height: 30%; /* Container spans the full viewport height */
+  grid-gap: 10%;
+}
+
+
+.savely-container {
+  background-color: #19d3c5;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.savely-container-1 {
+  grid-area: 1 / 1
+}
+
+.savely-container-2 {
+  grid-area: 1 / 2
+}
+
+.savely-container-2 {
+  grid-area: 1 / 3
+}
