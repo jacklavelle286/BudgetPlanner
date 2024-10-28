@@ -847,6 +847,12 @@ grid-area: auto;
 }
 
 
+@media (max-width: 700px) {
+  .header-landing-grid {
+    flex-direction: column;
+  }
+}
+
 .login-button-div {
   display: flex;
   justify-content: center;
@@ -917,21 +923,83 @@ grid-area: auto;
 }
 .savely-h1 {
   position: absolute;
-  top: 20%; 
-  left: 20%; 
-  transform: translate(-20%, -20%); 
-  z-index: 1; 
-  font-size: 5em; 
+  top: 20%;
+  left: 20%;
+  transform: translate(-20%, -20%);
+  z-index: 1;
+  font-size: 5em;
   text-align: center;
   border-radius: 10px;
   padding: 1%;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #19d3c38c; 
-  backdrop-filter: blur(2px); 
-  color: #ffffff; 
+  background-color: #19d3c38c;
+  backdrop-filter: blur(2px);
+  color: #ffffff;
   border: white solid 5px;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive adjustments for .savely-h1 */
+@media (max-width: 1200px) {
+  .savely-h1 {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 900px) {
+  .savely-h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 700px) {
+  .savely-h1 {
+    font-size: 2em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .savely-h1 {
+    font-size: 1.5em;
+    padding: 8px;
+    border-width: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .savely-h1 {
+    font-size: 1.2em;
+    padding: 5px;
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 300px) {
+  .savely-h1 {
+    font-size: 1em;
+    padding: 4px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 200px) {
+  .savely-h1 {
+    font-size: 0.8em;
+    padding: 3px;
+    border-width: 2px;
+    left: 10%; /* Adjust left position for smaller screens */
+    transform: translate(-10%, -20%);
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .savely-h1, .typewriter-login {
+    font-size: .5em;
+  }
 }
 
 .savely-h1:hover {
@@ -941,17 +1009,17 @@ grid-area: auto;
 }
 
 
-
-
 .savely-p {
-  position: fixed;
-
-  width: 80%; 
+  position: absolute;
   top: 50%;
-  left: 54%;
-  transform: translate(-50%, 100%); /* Start off-screen at the bottom */
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
-  font-size: 1.5em;
+  font-size: clamp(1em, 2vw + 1em, 1.5em); /* Dynamically scales font size */
+  width: min(80%, 500px); /* Maximum width is 500px, but will scale down with screen */
+  height: auto; /* Allows the height to adapt to content */
+  max-height: 70vh; /* Ensures it doesn’t get too tall */
+  padding: 1em; /* Adds some padding */
   text-align: center;
   border-radius: 10px;
   border: white solid 5px;
@@ -960,74 +1028,17 @@ grid-area: auto;
   backdrop-filter: blur(10px);
   opacity: 0;
   visibility: hidden;
-  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, background-color 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 }
 
-
-/* Gradual font size reduction with multiple media queries */
-
-@media (max-width: 1200px) {
-  .savely-p {
-    font-size: 1.5em;
-  }
-}
-
-@media (max-width: 1000px) {
-  .savely-p {
-    font-size: 1.3em;
-  }
-}
-
-@media (max-width: 800px) {
-  .savely-p {
-    font-size: 1.1em;
-  }
-  .savely-h1 {
-    font-size: 2.5em;
-  }
-}
-
-@media (max-width: 600px) {
-  .savely-p {
-    font-size: 1em;
-  }
-}
-
-@media (max-width: 500px) {
-  .savely-p {
-    font-size: 0.9em;
-  }
-}
-
+/* Optional media query for very small screens if needed */
 @media (max-width: 400px) {
   .savely-p {
-    font-size: 0.8em;
+    font-size: clamp(0.8em, 3vw + 0.5em, 1.2em); /* Slightly smaller scaling on very small screens */
+    width: 90%; /* A bit more width on smaller screens */
   }
 }
 
-@media (max-width: 300px) {
-  .savely-p {
-    font-size: 0.6em;
-  }
-}
-
-@media (max-width: 250px) {
-  .savely-p {
-    font-size: 0.4em;
-  }
-}
-
-@media (max-width: 200px) {
-  .savely-p {
-    font-size: 0.4em;
-  }
-}
-
-@media (max-width: 150px) {
-  .savely-p {
-    font-size: 0.1em;
-  }
-}
 
 
 .savely-p:hover {
@@ -1050,22 +1061,23 @@ grid-area: auto;
 
 
 .body-end-landing-grid {
-  display: grid;
-  grid-template: 1fr / repeat(3, 3fr); 
-  background-color:#192851;
+  display: flex;
+  flex-wrap: wrap; /* Enables items to wrap to a new row */
+  justify-content: space-around; /* Distributes space around the items */
+  background-color: #192851;
 }
 
-
 .savely-container {
+  flex: 1 1 30%; /* Flex-grow, flex-shrink, and base width (30% width) */
+  min-width: 250px; /* Minimum width before wrapping to new row */
   color: white;
   text-align: center;
   border: white 5px solid;
-  padding: 10px;
+  padding: 1%;
 }
 
 .savely-container:hover {
   position: relative;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
   transition: .5s;
   background-color:#6935d3;
 }
@@ -1094,7 +1106,14 @@ grid-area: auto;
 
 
 .savely-container-6 {
+  display: flex;
+  flex-direction: column;
   grid-area: 2 / 3;
+
+}
+
+.savely-container-6 button {
+  text-align: center;
 }
 
 .savely-container-6 img {
