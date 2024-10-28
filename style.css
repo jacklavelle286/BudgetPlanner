@@ -847,29 +847,21 @@ grid-area: auto;
 }
 
 
-
+.login-button-div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 1em;
+  text-wrap: nowrap;
+}
 
 .header-title {
   position: relative; /* Ensures ::after aligns with this element */
   display: inline-block; /* Keeps the width confined to the content */
   text-align: left;
   font-family: Afacad, sans-serif;
-}
-
-.header-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 3px; /* Adjust height of the underline */
-  background-color: #19d3c5; /* Blue line color */
-  transition: width 0.4s ease; /* Controls the speed of the line appearing */
-}
-
-/* On hover, extend the blue line */
-.header-title:hover::after {
-  width: 47%; /* The line grows to the full width of the header title */
+  text-wrap: wrap;
 }
 
 
@@ -924,7 +916,7 @@ grid-area: auto;
   1/1;
 }
 .savely-h1 {
-  position: absolute; 
+  position: absolute;
   top: 20%; 
   left: 20%; 
   transform: translate(-20%, -20%); 
@@ -948,33 +940,113 @@ grid-area: auto;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
 }
 
+
+
+
 .savely-p {
-  position: fixed; 
-  top: 50%; 
-  left: 20%; 
-  transform: translate(-20%, -20%); 
-  z-index: 10; 
-  font-size: 4em; 
+  position: fixed;
+
+  width: 80%; 
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, 100%); /* Start off-screen at the bottom */
+  z-index: 10;
+  font-size: 1.5em;
   text-align: center;
   border-radius: 10px;
-  padding: 1%;
-  padding: 10px 10px;
-  backdrop-filter: blur(2px); 
-  color:#ffffff;
   border: white solid 5px;
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width */
-  height: 60%; /* Full height */
-  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
-  backdrop-filter: blur(10px); /* Apply the glass effect */
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  background-color: #192851;
+  color: white;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, background-color 0.5s ease;
+}
 
+
+/* Gradual font size reduction with multiple media queries */
+
+@media (max-width: 1200px) {
+  .savely-p {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .savely-p {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 800px) {
+  .savely-p {
+    font-size: 1.1em;
+  }
+  .savely-h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  .savely-p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 500px) {
+  .savely-p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 400px) {
+  .savely-p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 300px) {
+  .savely-p {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 250px) {
+  .savely-p {
+    font-size: 0.4em;
+  }
+}
+
+@media (max-width: 200px) {
+  .savely-p {
+    font-size: 0.4em;
+  }
+}
+
+@media (max-width: 150px) {
+  .savely-p {
+    font-size: 0.1em;
+  }
+}
+
+
+.savely-p:hover {
+  background-color: #6935d3;
+}
+
+
+
+.savely-p:hover {
+  transition: .5s;
+  background-color: #6935d3;
 }
 
 .modal-active {
-  display: block; /* Show the modal when active */
-
+  transform: translate(-50%, -50%); /* Center on screen */
+  opacity: 1;
+  visibility: visible;
 }
+
 
 
 .body-end-landing-grid {
