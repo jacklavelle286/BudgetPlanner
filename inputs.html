@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+  <title>Income Details</title>
+</head>
+<body>
+  <div class="grid-container-create">
+    <nav class="nav-container">
+      <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
+      <div class="nav-flexbox" id="nav-links">
+        <a href="home.html" class="nav-item-home">Home</a>
+        <a href="create.html" class="nav-item-create">Create Budget</a>
+        <a href="graphs.html" class="nav-item-graphs">Graphs</a>
+        <a href="inputs.html" class="nav-item-income">Income</a>
+        <a href="analysis.html" class="nav-item-analysis">Analysis</a>
+        <a href="logout.html" class="nav-item-logout">Logout</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="main-title-content">
+    <h1 class="main-title-content-h1 create-header">Create Your Budget</h1>
+  </div>
+    <div class="main-title-content-border-box">
+      <p class="main-title-p">Click the 'add Income' button to add a job, income, category and other important job information to your budget.</p>
+      <button class="main-title-content-border-box-button" id="modal-button" onclick="toggleForm()">Add Income</button>
+      <div id="income-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="close-cross" onclick="toggleForm()">&times;</span>
+          <form class="modal-internal-content" action="income.js" method="post">
+            <label class="modal-internal-content-job-label" for="job">Job:</label>
+            <input class="modal-internal-content-job-input" placeholder="Senior Software Engineer" type="text" id="job" name="job" required>
+            
+            <label for="income">Income:</label>
+            <input type="number" id="income" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="£100,000" name="income" required>
+            
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+              <option value="devops">DevOps</option>
+              <option value="cloud-architecture">Cloud Architecture</option>
+              <option value="consultant">Consultant</option>
+              <option value="software-development">Software Development</option>
+              <option value="data-science">Data Science</option>
+              <option value="cyber-security">Cyber Security</option>
+              <option value="network-engineering">Network Engineering</option>
+              <option value="project-management">Project Management</option>
+              <option value="technical-support">Technical Support</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="nursing">Nursing</option>
+              <option value="medicine">Medicine</option>
+              <option value="education">Education</option>
+              <option value="finance">Finance</option>
+              <option value="accounting">Accounting</option>
+              <option value="marketing">Marketing</option>
+              <option value="human-resources">Human Resources</option>
+              <option value="sales">Sales</option>
+              <option value="customer-service">Customer Service</option>
+              <option value="mechanical-engineering">Mechanical Engineering</option>
+              <option value="civil-engineering">Civil Engineering</option>
+              <option value="architecture">Architecture</option>
+              <option value="graphic-design">Graphic Design</option>
+              <option value="journalism">Journalism</option>
+              <option value="legal">Legal</option>
+              <option value="paralegal">Paralegal</option>
+              <option value="electrician">Electrician</option>
+              <option value="plumbing">Plumbing</option>
+              <option value="construction">Construction</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="culinary">Culinary</option>
+              <option value="aviation">Aviation</option>
+              <option value="transportation">Transportation</option>
+              <option value="research">Research</option>
+              <option value="pharmacy">Pharmacy</option>
+              <option value="veterinary">Veterinary</option>
+              <option value="social-work">Social Work</option>
+              <option value="psychology">Psychology</option>
+              <option value="arts">Arts</option>
+              <option value="performing-arts">Performing Arts</option>
+              <option value="writing">Writing</option>
+              <option value="library-science">Library Science</option>
+              <option value="data-analysis">Data Analysis</option>
+              <option value="environmental-science">Environmental Science</option>
+              <option value="urban-planning">Urban Planning</option>
+              <option value="policy-analysis">Policy Analysis</option>
+              <option value="non-profit-management">Non-Profit Management</option>
+              <option value="event-planning">Event Planning</option>
+              <option value="quality-assurance">Quality Assurance</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="agriculture">Agriculture</option>
+              <option value="retail">Retail</option>
+              <option value="logistics">Logistics</option>
+              <option value="supply-chain">Supply Chain</option>
+              <option value="customer-success">Customer Success</option>
+              <option value="business-analysis">Business Analysis</option>
+              <option value="operations-management">Operations Management</option>
+              <option value="training-development">Training &amp; Development</option>
+              <option value="public-relations">Public Relations</option>
+              <option value="media-production">Media Production</option>
+              <option value="film-production">Film Production</option>
+              <option value="music-production">Music Production</option>
+              <option value="telecommunications">Telecommunications</option>
+              <option value="biotechnology">Biotechnology</option>
+              <option value="chemical-engineering">Chemical Engineering</option>
+              <option value="petroleum-engineering">Petroleum Engineering</option>
+              <option value="renewable-energy">Renewable Energy</option>
+              <option value="e-commerce">E-commerce</option>
+              <option value="entrepreneurship">Entrepreneurship</option>
+              <option value="sports-management">Sports Management</option>
+              <option value="real-estate">Real Estate</option>
+              <option value="insurance">Insurance</option>
+              <option value="banking">Banking</option>
+              <option value="investment-banking">Investment Banking</option>
+              <option value="game-development">Game Development</option>
+              <option value="animation">Animation</option>
+              <option value="mobile-app-development">Mobile App Development</option>
+              <option value="web-development">Web Development</option>
+              <option value="user-experience">User Experience (UX)</option>
+              <option value="user-interface-design">User Interface (UI) Design</option>
+              <option value="product-management">Product Management</option>
+              <option value="quality-control">Quality Control</option>
+              <option value="call-center">Call Center</option>
+              <option value="government">Government</option>
+              <option value="military">Military</option>
+              <option value="law-enforcement">Law Enforcement</option>
+              <option value="firefighting">Firefighting</option>
+              <option value="emergency-services">Emergency Services</option>
+              <option value="translation">Translation</option>
+              <option value="interpretation">Interpretation</option>
+              <option value="tourism">Tourism</option>
+              <option value="hospitality-management">Hospitality Management</option>
+              <option value="fitness">Fitness</option>
+              <option value="wellness">Wellness</option>
+              <option value="cosmetology">Cosmetology</option>
+              <option value="fashion-design">Fashion Design</option>
+              <option value="interior-design">Interior Design</option>
+              <option value="photography">Photography</option>
+              <option value="meteorology">Meteorology</option>
+              <option value="oceanography">Oceanography</option>
+              <option value="astronomy">Astronomy</option>
+              <option value="space-science">Space Science</option>
+              <option value="geology">Geology</option>
+              <option value="nanotechnology">Nanotechnology</option>
+              <option value="robotics">Robotics</option>
+              <option value="artificial-intelligence">Artificial Intelligence</option>
+              <option value="machine-learning">Machine Learning</option>
+              <option value="big-data">Big Data</option>
+              <option value="cloud-computing">Cloud Computing</option>
+              <option value="blockchain">Blockchain</option>
+              <option value="quantum-computing">Quantum Computing</option>
+              <option value="other">Other</option>
+
+            </select>
+            
+            <label for="date">Start Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <input type="submit" value="Submit" class="default-submit-button">
+          </form>
+          
+        </div>
+      </div>
+  </div>
+
+<script src="script.js"></script>
+<script src="income.js"></script>
+</body>
+</html>

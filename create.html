@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <title>Create Budget</title>
+</head>
+<body>
+  <div class="grid-container-create">
+    <nav class="nav-container">
+      <span class="burger" onclick="toggleMenu()">☰</span> <!-- Burger icon -->
+      <div class="nav-flexbox" id="nav-links">
+        <a href="home.html" class="nav-item-home">Home</a>
+        <a href="create.html" class="nav-item-create">Create Budget</a>
+        <a href="graphs.html" class="nav-item-graphs">Graphs</a>
+        <a href="inputs.html" class="nav-item-income">Income</a>
+        <a href="analysis.html" class="nav-item-analysis">Analysis</a>
+        <a href="logout.html" class="nav-item-logout">Logout</a>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="main-title-content">
+    <h1 class="main-title-content-h1 create-header">Create Your Budget</h1>
+  </div>
+  
+  <div>
+    <div class="main-grid-create">
+      <button class="" id="create-modal-button-1">
+        <div class="item item-1">
+          <h1>1. Add an Item.</h1>
+        </div>
+      </button>
+      <button class="" id="create-modal-button-2">
+        <div class="item item-2">
+          <h1>2. Add the Cost.</h1>
+        </div>
+      </button>
+      <button class="" id="create-modal-button-3">
+        <div class="item item-3">
+          <h1>3. Categorise.</h1>
+        </div>
+      </button>
+      <button class="" id="create-modal-button-4">
+        <div class="item item-4">
+          <h1>4. Customize.</h1>
+        </div>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Modal 1 -->
+  <div class="create-modal create-modal-instructions-1" id="modal-1">
+    <span class="close" id="close-cross-1">&times;</span>
+    <p class="typewriter">
+      Think about the regular expenses you incur each month, such as rent, utilities, groceries, 
+      or subscriptions.
+    </p>
+  </div>
+  
+  <!-- Modal 2 -->
+  <div class="create-modal create-modal-instructions-2" id="modal-2">
+    <span class="close" id="close-cross-2">&times;</span>
+    <p class="typewriter">
+      Assigning an exact cost to each budget item is crucial for accurate tracking and analysis. 
+    </p>
+  </div>
+  
+  <!-- Modal 3 -->
+  <div class="create-modal create-modal-instructions-3" id="modal-3">
+    <span class="close" id="close-cross-3">&times;</span>
+    <p class="typewriter">
+      Once you’ve added your expenditure, it’s important to categorize it correctly. 
+      Choose from a range of pre-defined categories.
+    </p>
+  </div>
+  
+  <!-- Modal 4 -->
+  <div class="create-modal create-modal-instructions-4" id="modal-4">
+    <span class="close" id="close-cross-4">&times;</span>
+    <p class="typewriter">
+      If you have expenses that don’t fit neatly into our pre-defined categories, 
+      feel free to create your own custom category.
+    </p>
+  </div>
+
+  <script src="budget.js"></script>`
+  <script src="script.js"></script>
+</body>
+</html>

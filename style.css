@@ -1,0 +1,1124 @@
+/* Global styles */
+
+body {
+  margin: 0;
+  font-family: Afacad, sans-serif;
+  background-color: #ddd5d0;
+  font-weight: lighter;
+}
+
+
+.typewriter-line {
+  font-family: monospace;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid black;  /* Blinking cursor effect */
+  width: 0;  /* Start with no width */
+  animation: none;  /* Initially no animation */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: black;
+  }
+}
+
+
+/* Remove default list styles */
+
+/* Default button styles */
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.default-submit-button {
+  font-size: 1.5em;
+  background-color: #19d3c5; /* Blue button color */
+  color: #192852; 
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin:  20px; /* Add some space between the button and the text */
+  width: 50%;
+  border: 5px white;
+}
+
+.default-submit-button:active {
+  box-shadow: 0 5px 5px #666;
+  transform: translateY(2px);
+}
+
+
+/* Main grid container */
+.grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.nav-flexbox {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  color: #192852;
+  background-color: #192852;
+  height: 60%;
+  font-size: 1.5em;
+  height: fit-content;
+  overflow: hidden;  /* Hide the overflow content */
+  transition: max-height 0.4s ease; /* Slow down opening/closing of the menu */
+}
+
+.nav-flexbox a {
+  text-decoration: unset;
+  color: inherit;
+}
+
+/* Styling for the logout button */
+.nav-item-logout {
+  color: #192852;
+  padding: 10px;
+  margin-left: auto;
+  background-color: #19d3c5;
+  border-radius: 1.875em;
+  margin-right: 50px;
+  padding: 10px 20px; /* Padding inside the button */
+  border: 5px white;
+}
+
+.nav-flexbox a:not(.nav-item-home, .nav-item-graphs, .nav-item-income, .nav-item-analysis, .nav-item-create):hover {
+  background-color: #55eadd;
+  color: #192852;
+  padding: auto;
+  transition: 0.3s;
+}
+
+/* Styling for individual nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout) {
+  position: relative;
+  padding: 10px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* The blue line animation for all nav items except for .nav-item-logout */
+.nav-flexbox a:not(.nav-item-logout)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #19d3c5; /* Blue line color */
+  transition: width 0.4s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.nav-flexbox a:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.nav-flexbox a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+
+/* Burger icon */
+.burger {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #19d3c5;
+  padding: 10px;
+  background-color: #192852;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media query for smaller screens for nav */
+@media (max-width: 1000px) {
+  .nav-flexbox {
+    flex-direction: column;
+    background-color: #192852;
+    color: #192852;
+    max-height: 0;  /* Start with a collapsed menu */
+    overflow: hidden;  /* Hide content when collapsed */
+    transition: max-height 0.3s ease;  /* Smooth transition for opening and closing */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .burger {
+    display: flex; /* Show the burger icon */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Show the menu when the 'show' class is added */
+  .nav-flexbox.show {
+    max-height: 800px;  /* Large max-height for smooth transitions */
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .burger.show {
+    display: none; /* Hide the burger icon when the menu is open */
+  }
+
+  /* Styling for the login/logout button */
+  .nav-item-logout {
+    margin-right: auto; /* Push the button to the right */
+    margin-bottom: 10px;
+    padding: 10px 20px; /* Padding inside the button */
+    border: 5px;
+  }
+}
+
+
+/* inputs.html styles */ 
+
+/* Styling for the main content */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-title-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  color: #192852;
+  font-size: 2em;
+  height: 75%;
+}
+
+.main-title-content-h1 {
+  animation: fadeIn 3s;
+  position: relative;
+  text-align: center;
+}
+
+/* The blue line animation for all nav items except for .nav-item-logout */
+.main-title-content-h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #192852; /* Blue line color */
+  transition: width 1.2s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.main-title-content-h1:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.main-title-content-h1 a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+
+/* Styling for the main content box */
+.main-title-content-border-box {
+  display: flex;
+  background-color: #192852; /* Lighter background to contrast the border */
+  margin: 20px auto; /* Center the box with some space */
+  padding: 20px; /* Add some padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: 80%; /* 80% of the parent container */
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title-p {
+  font-size: 1.5em;
+  margin: 20px; /* Add some space between the text and the border */
+  text-align: center; /* Center the text */
+}
+
+.main-title-content-border-box-button {
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+  border: 5px solid #19d3c5;
+  min-width: none;
+}
+
+.main-title-content-border-box-button:active {
+  color: #0a1021;
+}
+
+
+
+/* Modal styling */
+.modal {
+  position: fixed; /* Stay in place */
+  display: none; /* Hidden by default */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
+  backdrop-filter: blur(10px); /* Apply the glass effect */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  max-width: 80%; /* Optional: limit maximum width */
+  height: fit-content;
+}
+
+
+/* Modal internal content */
+.modal-internal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Afacad, sans-serif;
+}
+
+/* Make all inputs, selects, and buttons uniform in width */
+.modal-internal-content input, 
+.modal-internal-content select, 
+.modal-internal-content button, 
+.modal-internal-content label {
+  width: 100%; /* Consistent width */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+input, option, select {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid #19d3c5;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  font-size: 1000px;
+  background-color: white;
+  color: #192852;
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px; /* Add some space between the button and the text */
+}
+
+
+
+.input-modal-content {
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: fit-content; /* Fit content width */
+  max-width: 80%; /* Optional: limit maximum width */
+}
+
+/* home.html styles */ 
+
+.budget-main-header {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto; 
+}
+
+.budget-main-header-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-main-header-shared-styles {
+  display: flex;
+  margin: 10px;
+  color:#192852;
+  border-radius: 10px;
+  width:fit-content;
+  padding: 20px;
+  align-items: center;
+  border-radius: 20px;;
+
+}
+.budget-main-header-title {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 1;
+}
+
+.budget-main-header-title-2 {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 2;
+}
+
+.budget-styled-words {
+  color: #6935d3;
+  font-weight: bold;
+  position: relative;
+  
+}
+
+.budget-styled-words::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;  /* Adjust height of the underline */
+  background-color: #19d3c5; /* Blue line color */
+  transition: width 0.9s ease; /* Controls the speed of the line appearing */
+}
+
+/* On hover, extend the blue line */
+.budget-styled-words:hover::after {
+  width: 100%; /* The line grows to the full width of the nav item's text */
+}
+
+/* Undo the hover effect with slow removal of the line */
+.budget-styled-words a::after {
+  transition: width 0.4s ease; /* Slow undo of the line when unhovered */
+}
+
+/* Paragraph styling */
+.budget-main-header-p {
+  display: flex;
+  text-align: center;
+  background-color: white;
+  color: #192851;
+  border-radius: 25px;
+  width: 80%;
+  padding: 25px;
+  margin: 20px auto;  /* Center the paragraph and add space between elements */
+  height: fit-content;
+}
+
+.typewriter {
+  font-family: monospace;  /* Monospace font for typewriter effect */
+  display: inline-block;
+  overflow: hidden;  /* Hide the text initially */
+  white-space: nowrap;  /* Prevents the text from wrapping */
+  text-align: center;  /* Center the text */
+  width: 0;  /* Start with no width */
+  animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;  /* Type the full width of the text */
+  }
+}
+
+
+/* Styling for the list container */
+.budget-main-header-list {
+  display: flex;
+  flex-direction: column;  /* Align items in a vertical direction */
+  justify-content: center;  /* Center the content */
+  align-items: center;      /* Center horizontally */
+  text-align: center;       /* Center text inside the list */
+  background-color: white;
+  color: #192851;
+  border-radius: 25px;
+  width: 80%;               /* Ensure it's a percentage of the container */
+  padding: 25px;
+  margin: 20px auto;        /* Center the list container */
+}
+
+/* Styling for the default list */
+.default-list {
+  list-style: none;  /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+  width: 100%;       /* Make the list fill the container width */
+  text-align: center;
+}
+
+
+
+/* Styling for list items */
+.default-list li {
+  font-weight: bold;
+  font-size: 30px;
+
+}
+
+/* Styling for the link in the list */
+.default-list a {
+  text-decoration: none;
+  color: #19d3c5;
+}
+
+.default-list a:hover {
+  text-decoration: underline;
+} 
+
+
+.p-quotes {
+  font-style: italic;
+  font-size: larger;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  opacity: 0; /* Hidden by default */
+  transform: translateX(-100%); /* Start off-screen */
+  transition: opacity 0.5s ease-out;
+}
+
+.slide-in.active {
+  animation: slideInFromLeft 1s forwards; /* Trigger the animation */
+}
+
+
+/* Graphs.html styling */ 
+
+.graphs-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  width: 100vw;
+  min-height: 100vh; /* Use min-height instead of height */
+  gap: 10px;
+  padding-bottom: 20px; /* Add some padding at the bottom */
+}
+
+.full-width-header {
+  grid-column: 1 / -1; /* Make the header span across the entire width */
+  padding: 20px;
+  color:#192851;
+  text-align: center;
+}
+
+.graphs-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+
+.graph-item img {
+  width: 20vh; /* Set a fixed width */
+  height: 20vh; /* Set a fixed height */
+  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+  display: block;
+  padding: 25px;
+}
+ 
+.graph-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: solid #ffffff 5px;
+  transition: border-color 0.3s ease;
+  width: 70%;
+  justify-self: center;
+}
+
+.graph-item:active {
+  border: solid 5px;
+}
+
+.graph-item-1 {
+grid-area: auto;
+}
+
+.graph-item-2 {
+grid-area: auto;
+}
+
+
+/* create budget.html styling */
+
+.main-grid-create {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 60px;
+  margin: 20px;
+ }
+ 
+
+ .item {
+  padding: 10px;
+  border-radius: 25px;;
+ }
+ 
+ .item-1, .item-2, .item-3, .item-4 {
+  background-color:#ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+ }
+ 
+ .item-1, .item-2, .item-3, .item-4 {
+  background-color: #ffffff;
+  border: 10px solid white;
+ }
+
+ .item:hover{
+  border: 10px solid #192851;
+ }
+ 
+ .item:active{
+  background-color:#19d3c5;
+ }
+
+
+ /* on click add a modal which pops up more detailed instructions */
+
+ .create-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  text-align: center;
+  text-wrap: wrap;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(255, 255, 255, 0.2); /* White background with transparency */
+  backdrop-filter: blur(10px); /* Apply the glass effect */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-family: Afacad, sans-serif;
+ }
+
+
+ .create-modal-instructions-1 p,
+ .create-modal-instructions-2 p,
+ .create-modal-instructions-3 p,
+ .create-modal-instructions-4 p
+ 
+ {
+
+    color: #000000;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 3vh;
+
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto 1fr auto; /* Rows for header, main content, and footer */
+    grid-template-areas:
+      "header header"
+      "left-main right-main"
+      "footer footer";
+    gap: 0; /* Adjust if needed */
+  }
+  
+  .analysis-header {
+    grid-area: header;
+    padding: 20px;
+    text-align: center; /* Center content horizontally */
+    background-color: #f0f0f0; /* Optional styling */
+  }
+  
+  .analysis-left-main {
+    color: white;
+    grid-area: left-main;
+    padding: 20px;
+    background-color:#192851;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .analysis-left-main img {
+    height: 100px;
+    width: 100px;
+    border-bottom: #000000 solid 5px;
+    border-right: #000000 solid 5px;
+    border-radius: 15px;
+    position:relative;
+    cursor: pointer;
+
+    transition: filter 0.5s ease;
+  }
+  
+
+  /* Modal Content/Box */
+.ai-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #192852;
+  margin: 0; /* Remove margin */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  color: #ffffff; /* White text color */
+  width: 80%;
+}
+
+
+/* Modal internal content */
+.ai-modal-internal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Afacad, sans-serif;
+}
+
+.modal-internal-content-ai-input {
+  height: auto;
+  width: 1000px;
+}
+
+/* Make all inputs, selects, and buttons uniform in width */ 
+.ai-modal-internal-content input
+.ai-modal-internal-content select, 
+.ai-modal-internal-content button, 
+.ai-modal-internal-content label {
+
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+  
+  .analysis-left-main img:active {
+    box-shadow: 0 5px 5px #666;
+    transform: translateY(2px);
+  }
+  
+  .analysis-left-main img:hover {
+    filter: hue-rotate(120deg);
+
+  }
+  
+
+
+
+
+  .budget-styled-words-edit {
+    color: white !important;
+  }
+
+
+  .analysis-right-main {
+    display: flex;
+    grid-area: right-main;
+    background-color: #d0d0d0; /* Optional styling */
+    justify-self: center;
+  }
+
+  .ai-content-box {
+    background-color: white;
+    border: #192851 solid 5px;
+    border-radius: 5px;
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+    font-size: 28.5px;
+
+  }
+  
+  .analysis-footer {
+    grid-area: footer;
+    padding: 20px;
+    text-align: center; /* Center content horizontally */
+
+  }
+  
+
+  .styled-p-quotes {
+    text-align: left;
+  }
+
+/* landing page */
+
+.login-body {
+  background-color: white;
+}
+
+.landing-grid {
+
+  display: grid;
+  grid-template-rows: 20% 40% 40%; /* Adjust the percentages as needed */
+  grid-template-columns: 100%; /* Single column taking up the full width */
+}
+
+
+/* Styling for the login button */
+.nav-item-login {
+  color:#19d3c5;
+  padding: 10px;
+  margin-left: auto;
+  background-color:#192852;
+  border-radius: 1.875em;
+  margin-right: 50px;
+  padding: 10px 20px; /* Padding inside the button */
+  border: 5px white;
+}
+
+.header-landing-grid {
+  background-color: #192851;
+  color: #ffffff;
+  grid-area: 1 / 1;
+  display: flex;
+  justify-content: space-between; /* Pushes the h1 to the left and button to the right */
+  align-items: center; /* Vertically aligns the items */
+  padding: 0 20px; /* Add padding to the sides */
+}
+
+
+@media (max-width: 700px) {
+  .header-landing-grid {
+    flex-direction: column;
+  }
+}
+
+.login-button-div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 1em;
+  text-wrap: nowrap;
+}
+
+.header-title {
+  position: relative; /* Ensures ::after aligns with this element */
+  display: inline-block; /* Keeps the width confined to the content */
+  text-align: left;
+  font-family: Afacad, sans-serif;
+  text-wrap: wrap;
+}
+
+
+
+.login-button {
+  display: flex;
+  padding: 10px 20px; 
+  border-radius: 50px;
+  margin:  20px; 
+  font-size: 1.5em;
+  transition: .3s;
+  border: 2px solid #192851;
+  background-color:#ffffff;  
+  color:#192851; 
+
+}
+
+
+.login-button:hover {
+  
+  background-color:#192851; 
+  color:#ffffff; 
+  border: 2px solid white;
+}
+
+
+.login-button:active {
+  box-shadow: 0 5px 5px #dcdcdc;
+  transform: translateY(1px);
+}
+
+
+.savely-background-1 {
+  position: relative; /* Enables absolute positioning for child elements */
+  grid-area: 1 / 1;
+  color: #ffffff;
+}
+
+.savely-background-1 img {
+  height: 100%;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+.savely-background-1 img:hover {
+  filter: grayscale(0%);
+}
+
+
+.savely-h1, .savely-p, .savely-img {
+  grid-area: 
+  1/1;
+}
+.savely-h1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-20%, -20%);
+  z-index: 1;
+  font-size: 5em;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1%;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #19d3c38c;
+  backdrop-filter: blur(2px);
+  color: #ffffff;
+  border: white solid 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive adjustments for .savely-h1 */
+@media (max-width: 1200px) {
+  .savely-h1 {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 900px) {
+  .savely-h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 700px) {
+  .savely-h1 {
+    font-size: 2em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .savely-h1 {
+    font-size: 1.5em;
+    padding: 8px;
+    border-width: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .savely-h1 {
+    font-size: 1.2em;
+    padding: 5px;
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 300px) {
+  .savely-h1 {
+    font-size: 1em;
+    padding: 4px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 200px) {
+  .savely-h1 {
+    font-size: 0.8em;
+    padding: 3px;
+    border-width: 2px;
+    left: 10%; /* Adjust left position for smaller screens */
+    transform: translate(-10%, -20%);
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .savely-h1, .typewriter-login {
+    font-size: .5em;
+  }
+}
+
+.savely-h1:hover {
+  transform: translate(-20%, -20%) scale(1.05); 
+  background-color: #19d3c3b3; 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+}
+
+
+.savely-p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: clamp(1em, 2vw + 1em, 1.5em); /* Dynamically scales font size */
+  width: min(80%, 500px); /* Maximum width is 500px, but will scale down with screen */
+  height: auto; /* Allows the height to adapt to content */
+  max-height: 70vh; /* Ensures it doesn’t get too tall */
+  padding: 1em; /* Adds some padding */
+  text-align: center;
+  border-radius: 10px;
+  border: white solid 5px;
+  background-color: #192851;
+  color: white;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Optional media query for very small screens if needed */
+@media (max-width: 400px) {
+  .savely-p {
+    font-size: clamp(0.8em, 3vw + 0.5em, 1.2em); /* Slightly smaller scaling on very small screens */
+    width: 90%; /* A bit more width on smaller screens */
+  }
+}
+
+
+
+.savely-p:hover {
+  background-color: #6935d3;
+}
+
+
+
+.savely-p:hover {
+  transition: .5s;
+  background-color: #6935d3;
+}
+
+.modal-active {
+  transform: translate(-50%, -50%); /* Center on screen */
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+.body-end-landing-grid {
+  display: flex;
+  flex-wrap: wrap; /* Enables items to wrap to a new row */
+  justify-content: space-around; /* Distributes space around the items */
+  background-color: #192851;
+}
+
+.savely-container {
+  flex: 1 1 30%; /* Flex-grow, flex-shrink, and base width (30% width) */
+  min-width: 250px; /* Minimum width before wrapping to new row */
+  color: white;
+  text-align: center;
+  border: white 5px solid;
+  padding: 1%;
+}
+
+.savely-container:hover {
+  position: relative;
+  transition: .5s;
+  background-color:#6935d3;
+}
+
+
+.savely-container-1 {
+  grid-area: 1 / 1;
+}
+
+.savely-container-2 {
+  grid-area: 1 / 2;
+}
+
+.savely-container-3 {
+  grid-area: 1 / 3;
+}
+
+.savely-container-4 {
+  grid-area: 2 / 1;
+}
+
+
+.savely-container-5 {
+  grid-area: 2 / 2;
+}
+
+
+.savely-container-6 {
+  display: flex;
+  flex-direction: column;
+  grid-area: 2 / 3;
+
+}
+
+.savely-container-6 button {
+  text-align: center;
+}
+
+.savely-container-6 img {
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  height: 200px;
+  width: 200px;
+
+}
